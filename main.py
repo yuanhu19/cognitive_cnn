@@ -67,9 +67,8 @@ sess = tf.Session()
 
 # dataset
 # drive_dir = 'database/'
-# path = 'CognitiveRepository/' 
 path = 'MoreFunctions/' 
-datapath1 = path + 'Database/CognitivePresence.xlsx' #software engineering course (1747 messages)
+datapath1 = 'database/software_posts_cognitive.xlsx' #software engineering course (1747 messages)
 datapath2 =  'database/lct_agree_cognitive.xlsx' #logical and critical thinking MOOC set (1479 messages)
 
 # # folders for weights and results of training and testing on both software course and LCT MOOC post set
