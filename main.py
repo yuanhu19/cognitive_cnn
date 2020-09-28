@@ -80,8 +80,8 @@ datapath2 =  'database/lct_agree_cognitive.xlsx' #logical and critical thinking 
 # drive_dir_results =  'results_soft/'
 
 # folders for weights and results of training and testing on LCT MOOC
-drive_dir_weights =  'weights_results/weights_lct/'
-drive_dir_results =  'weights_results/results_lct/'
+drive_dir_weights =  'weights_results/weights/'
+drive_dir_results =  'weights_results/results/'
 
 # use pandas to load the data from the software course
 originaldata = pd.read_excel(datapath1)
@@ -117,8 +117,9 @@ print(originaldata)
 
 ########################## pre processing #########################
 # Loading the glove into a word2vec gensim object
-word2vec_filenametxt = 'glovefiles/' + 'glove.6B.100d.txt'
-word2vec_filename = 'glovefiles/' + 'glove.6B.100d.txt.word2vec'
+# word2vec_filenametxt = 'glovefiles/' + 'glove.6B.100d.txt'
+# word2vec_filename = 'glovefiles/' + 'glove.6B.100d.txt.word2vec'
+word2vec_filename = 'glovefiles/' + 'glove.6B.100d.w2vformat.txt'
 modelglove = KeyedVectors.load_word2vec_format(word2vec_filename, binary=False)
 print('glove loaded.')
 print('text converting...')
@@ -308,8 +309,10 @@ num_filters = 36 #default36
 batch_size = 128
 model,modelnoactiv = textCNNwithoutembedding(height=newdata.shape[1],width=newdata.shape[2],classes=5,activ='softmax',filter_sizes=filter_sizes,num_filters=num_filters)
 
+best_weights_path = 'best_weights/'
 # namefile = drive_dir_weights + 'Round2Fold3_model.weights.best.hdf5' #best accuracy for training on LCT
-namefile = drive_dir_weights + 'Round5Fold1_model.weights.best.hdf5'  #best kappa for training on LCT 
+# namefile = drive_dir_weights + 'Round5Fold1_model.weights.best.hdf5'  #best kappa for training on LCT 
+namefile = best_weights_path + 'ex3/' + 'Round5Fold1_model.weights.best.hdf5'  #best kappa for training on LCT 
 #namefile = drive_dir + 'model_weight/61%experiment2_model.weights.best.hdf5' #best weights provided by Leonardo
 # namefile = drive_dir_weights + 'Round6Fold1_model.weights.best.hdf5'  #best kappa and accuracy for training on both sets
 # namefile = drive_dir_weights + 'Round3Fold9_model.weights.best.hdf5'  #best kappa and accuracy for training on software course
