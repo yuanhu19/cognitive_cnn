@@ -120,8 +120,8 @@ print(originaldata)
 word2vec_filenametxt = 'glovefiles/' + 'glove.6B.100d.txt'
 word2vec_filename = 'glovefiles/' + 'glove.6B.100d.txt.word2vec'
 # word2vec_filename = 'glovefiles/' + 'glove.6B.100d.w2vformat.txt'
-# modelglove = KeyedVectors.load_word2vec_format(word2vec_filename, binary=False)
-modelglove = KeyedVectors.load_word2vec_format(word2vec_filenametxt, binary=False)
+modelglove = KeyedVectors.load_word2vec_format(word2vec_filename, binary=False)
+# modelglove = KeyedVectors.load_word2vec_format(word2vec_filenametxt, binary=False)
 print('glove loaded.')
 print('text converting...')
 
