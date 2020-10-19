@@ -4,6 +4,7 @@ import matplotlib.pyplot as plt
 from matplotlib import cm, transforms
 import json
 
+sta = 1
 def generateanalisys(xdata,ydata,modelnoactiv,modelactiv,analyzers):
 
   test_sample_preds = [None]*len(xdata)
@@ -27,7 +28,7 @@ def generateanalisys(xdata,ydata,modelnoactiv,modelactiv,analyzers):
   
   return analysis
 
-def plot_text_heatmap(words, scores, title="", width=10, height=0.2, verbose=0, max_word_per_line=20):
+def plot_text_heatmap(words, scores, number, title="", width=10, height=0.2, verbose=0, max_word_per_line=20):
     fig = plt.figure(figsize=(width, height))
     
     ax = plt.gca()
@@ -81,3 +82,8 @@ def plot_text_heatmap(words, scores, title="", width=10, height=0.2, verbose=0, 
 
     if verbose == 0:
         ax.axis('off')
+    
+    # save the plot as pngs in the xai dir
+    plt.savefig('xai_sample/' + str(number) + '.png')
+    
+    # plt.show()  #can try to return plt and save in the main.py as pngs 
